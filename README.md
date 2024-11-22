@@ -3,36 +3,47 @@
 ```
 import numpy as np
 import matplotlib.pyplot as plt
-# 定义域
-x = np.linspace(0, 12 * np.pi, 500)
-# 函数1
-y1 = 2 * np.sin(x)
-# 函数2
-y2 = np.cos(2 * x)
+# 时间
+t = np.arange(0,2,0.001)
+# 频率为3HZ的cos函数
+f1 = 3
+y1 = np.cos(2*np.pi*f1*t)
+# 频率为4hz的sin函数
+f2 = 4
+y2 = np.sin(np.pi*f2*t)
 ```
 
-画出两个函数在0到12 $\pi$ 之间的变化情况
+画出两个函数,以及它们的叠加（和）在0到12 $\pi$ 之间的变化情况
 
 ```
 # 创建图形
 plt.figure(figsize=(10, 6))
 
 # 上图 2sin(x)
-plt.subplot(2, 1, 1) # 两行一列，其中第一张图
-plt.plot(x, y1, label='2sin(x)')
-plt.title('2sin(x)')
+plt.subplot(3, 1, 1)
+plt.plot(t, y1, label='sin_wave')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.grid()
 plt.legend()
 
 # 下图 cos(2x)
-plt.subplot(2, 1, 2)
-plt.plot(x, y2, label='cos(2x)', color='orange')
-plt.title('cos(2x)')
-plt.xlabel('x')
+plt.subplot(3, 1, 2)
+plt.plot(t, y2, label='cos_wave', color='orange')
+plt.legend()
+plt.ylabel('y')
+plt.grid()
+plt
+
+# 下图 cos(2x)
+plt.subplot(3, 1, 3)
+plt.plot(t, y2+y1, label='wave', color='gray')
+plt.legend()
 plt.ylabel('y')
 plt.grid()
 plt
 ```
+
+![a00](https://github.com/Tony980624/Fourier-Transform/blob/main/images/output.png)
+
 
