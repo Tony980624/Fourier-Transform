@@ -44,7 +44,7 @@ plt.grid()
 plt
 ```
 
-![a00](https://github.com/Tony980624/Fourier-Transform/blob/main/images/output.png)
+![a00](https://github.com/Tony980624/Fourier-Transform/blob/main/images/output1.png)
 
 ```
 y3 = y1 + y2
@@ -52,6 +52,8 @@ y3 = y1 + y2
 F = np.fft.fft(y3)  # 傅里叶变换结果
 freqs = np.fft.fftfreq(len(t), d=(t[1] - t[0]))  # 对应频率
 ```
+欧拉公式: $e^{ix}=cos(x)+isin(x)$
+傅里叶变换公式: $F(\omega) = \int^{\infty}_{-\infty}f(t)e^{-i \omega t}dt$
 
 ```
 # 仅取正频率部分
@@ -85,3 +87,4 @@ plt.grid()
 plt.legend()
 plt.show()
 ```
+![a00](https://github.com/Tony980624/Fourier-Transform/blob/main/images/output.png)
